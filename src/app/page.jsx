@@ -2,8 +2,9 @@ import Movies from '@/components/Movies';
 import React from 'react'
 
 const Page = async ({searchParams}) => {
+    
 
-    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=58012d649375f0295b5bbccae0a917f3&language=en-US&page=1${searchParams.genre ? "&with_genres=" + searchParams.genre : ""}`, 
+    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US${searchParams.genre ? "&with_genres=" + searchParams.genre : ""}`, 
     {next: { revalidate: 10000 }})
 
     const data = await res.json();

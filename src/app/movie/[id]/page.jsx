@@ -2,7 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 
 const getMovie = async (id) => {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=58012d649375f0295b5bbccae0a917f3`)
+  
+
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`)
     return await res.json();
 }
 
